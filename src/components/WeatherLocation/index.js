@@ -9,4 +9,5 @@ const WeatherLocation = () => (
     </div>
 );
  
+
 export default WeatherLocation;
