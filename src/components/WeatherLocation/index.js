@@ -1,53 +1,39 @@
 import React, { Component } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import transformWeather from './../../services/transformWeather';
 import { api_weather } from './../../constants/api_url';
 import Location from './Location';
 import WeatherData from './WeatherData';
 import './styles.css';
-import  {
-    SUN,
-} from './../../constants/weathers';
 
-
-const data = {
-    temperature: 6,
-    weatherState: SUN,
-    humidity: 30,
-    wind: '10 m/s',
-}
 class WeatherLocation extends Component {
     // weatherLocationCont es lo mismo que index.js
     constructor(){
         super();// si o si agregar super() porque si no podria haber errores
         this.state = {
             city: 'Buenos Aires',
-            data: data,
+            data: null,
         };
         console.log("constructor");
     }
 
-    
 //cdm+tab
 componentDidMount() {
         console.log("componentDidMount");
+        this.handleUpdateClick();
+        //componente montó, termino de renderizar
 }
 //cdup+tab
 componentDidUpdate(prevProps, prevState) {
+    //componente se actualizó
     console.log("componentDidUpdate");
-}
-//cwm+tab
-componentWillMount() {
-    console.log("UNSAFE omponentWillMount");
-}
-//cwup+tab
-componentWillUpdate(nextProps, nextState) {
-    console.log("UNSAFE componentWillUpdate");
 }
   
     handleUpdateClick = () => {
         fetch(api_weather).then(resolve =>{
             return resolve.json();
         }).then(data => {
+            console.log("Resultado del handleUpdateClick");
            //resultados del servidor
            const newWeather = transformWeather(data);
            console.log(newWeather);
@@ -67,8 +53,10 @@ componentWillUpdate(nextProps, nextState) {
         return (
             <div className="weatherLocationCont">
                 <Location city={city}></Location>
-                <WeatherData data={data}></WeatherData>
-                <button onClick={this.handleUpdateClick}>Actualizar</button>
+                {data ? 
+                    <WeatherData data={data}></WeatherData>:
+                    <CircularProgress/>
+                }               
             </div>
         );    
     }
