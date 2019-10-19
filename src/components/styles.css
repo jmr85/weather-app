@@ -1,0 +1,13 @@
+
+
+@media (max-width: 64em) {
+    /*
+        vale esto hasta el maximo 64em
+        si se agranda se ve la pantalla con el diseño por defecto
+    */
+    .locationList {
+        max-height: 30vh;/*vh es: del 30% de la pantalla*/
+        overflow: auto;/*nos va permitir que aparezca la barra de scroll*/
+        margin-bottom: 20px;/*para que se distancie un poco de la lsita gris*/
+    }
+}
