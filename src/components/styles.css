@@ -11,3 +11,9 @@
         margin-bottom: 20px;/*para que se distancie un poco de la lsita gris*/
     }
 }
+.forecast-title{
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
