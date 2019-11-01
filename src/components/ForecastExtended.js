@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import ForecastItem from './ForecastItem';
 import './styles.css'
 
 class ForecastExtended extends Component {
@@ -7,8 +9,13 @@ class ForecastExtended extends Component {
         return (
         <div> 
             <h2 className="forecast-title">Pronostico extendido para {city}</h2> 
+            <ForecastItem></ForecastItem>
         </div>);
     }
+}
+
+ForecastExtended.propTypes = {
+    city: PropTypes.string.isRequired,
 }
 
 export default ForecastExtended;
