@@ -21,7 +21,7 @@ const data = {
 */
 
 const api_key = "31370e87f95b00644d8e710bf635fadb";
-const url_base_weather = "http://api.openweathermap.org/data/2.5/forecast";
+const url = "http://api.openweathermap.org/data/2.5/forecast";
 
 class ForecastExtended extends Component {
     
@@ -31,7 +31,15 @@ class ForecastExtended extends Component {
     }
 
     componentDidMount(){
-        
+        // fetch or axios
+        const url_forecast =  `${url}?q=${this.props.city}&appid=${api_key}`;
+        fetch(url_forecast).then(
+            data => (data.json())
+        ).then(
+            weather_data => {
+                console.log(weather_data);
+            }
+        );
     }
 
     renderForecastItemDays(){
