@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ForecastItem from './ForecastItem';
 import './styles.css'
+import { thisExpression } from '@babel/types';
 
 /*
 const days = [
@@ -18,11 +19,19 @@ const data = {
     wind: 'normal',
 }
 */
+
+const api_key = "31370e87f95b00644d8e710bf635fadb";
+const url_base_weather = "http://api.openweathermap.org/data/2.5/forecast";
+
 class ForecastExtended extends Component {
     
     constructor(){
         super();
         this.state = { forecastData: null }
+    }
+
+    componentDidMount(){
+        
     }
 
     renderForecastItemDays(){
