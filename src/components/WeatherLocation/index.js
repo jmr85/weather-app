@@ -41,7 +41,7 @@ componentDidUpdate(prevProps, prevState) {
            //resultados del servidor
            const newWeather = transformWeather(data);
            console.log(newWeather);
-           debugger;
+           //debugger;
             this.setState({
                 data: newWeather
             });            
